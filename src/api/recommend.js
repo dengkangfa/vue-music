@@ -50,7 +50,6 @@ export function getSongList(disstid) {
     platform: 'h5',
     hostUin: 0,
     needNewCode: 1,
-    g_tk: 5381,
     format: 'json'
   })
 

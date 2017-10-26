@@ -46,7 +46,7 @@
       _normalizeSongs(list) {
         let ret = []
         list.forEach((item) => {
-          let {musicData} = item
+          const musicData = item.data
           if (musicData.songid && musicData.albummid) {
             ret.push(createSong(musicData))
           }
