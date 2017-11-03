@@ -21,7 +21,7 @@
                 class="list"
                 ref="list">
             <div class="song-list-wrapper">
-                <song-list :rank="rank" @select="selectItem" :songs="songs"></song-list>
+                <song-list :rank="rank" @selectItem="selectItem" :songs="songs"></song-list>
             </div>
             <div class="loading-container" v-show="!songs.length">
                 <loading></loading>

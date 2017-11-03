@@ -29,6 +29,18 @@
       listenScroll: {
         type: Boolean,
         default: false
+      },
+      pullUp: {
+        type: Boolean,
+        default: false
+      },
+      beforeScroll: {
+        type: Boolean,
+        default: false
+      },
+      refreshDelay: {
+        type: Number,
+        default: 20
       }
     },
     mounted() {
@@ -46,10 +58,26 @@
           click: this.click
         })
 
+        // 监听滚动事件
         if (this.listenScroll) {
           let vm = this
           this.scroll.on('scroll', (pos) => {
             vm.$emit('scroll', pos)
+          })
+        }
+
+        // 滚动至底部
+        if (this.pullUp) {
+          this.scroll.on('scrollEnd', () => {
+            if (this.scroll.y <= this.scroll.maxScrollY + 50) {
+              this.$emit('scrollToEnd')
+            }
+          })
+        }
+
+        if (this.beforeScroll) {
+          this.scroll.on('beforeScrollStart', () => {
+            this.$emit('beforeScroll')
           })
         }
       },
@@ -71,9 +99,13 @@
     },
     watch: {
       data() {
-        this.$nextTick(() => {
+        // 文档渲染时间一般在18毫秒，存在一些动画延迟的情况，所以将动态设置一个delay
+        setTimeout(() => {
           this.refresh()
-        })
+        }, this.refreshDelay)
+//        this.$nextTick(() => {
+//          this.refresh()
+//        })
       }
     }
   }

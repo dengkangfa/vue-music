@@ -1,7 +1,7 @@
 <template>
-    <transtion name="slide">
+    <transition name="slide">
         <music-list :songs="songs" :title="title" :bgImage="bgImage" :rank="rank"></music-list>
-    </transtion>
+    </transition>
 </template>
 
 <script type="text/ecmascript-6">

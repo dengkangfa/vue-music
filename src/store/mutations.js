@@ -27,6 +27,12 @@ const matutaions = {
   },
   [types.SET_TOP_LIST](state, topList) {
     state.topList = topList
+  },
+  [types.SET_SEARCH_HISTORY](state, searchHistory) {
+    state.searchHistory = searchHistory
+  },
+  [types.SET_PLAY_HISTORY](state, playHistory) {
+    state.playHistory = playHistory
   }
 }
 

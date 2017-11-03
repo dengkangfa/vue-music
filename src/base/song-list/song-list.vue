@@ -6,7 +6,7 @@
                     <span :class="getRankCls(index)">{{ getRankText(index) }}</span>
                 </div>
                 <div class="content">
-                    <h2 class="name">{{ song.name }}</h2>
+                    <h2 class="name" v-html="song.name"></h2>
                     <p class="desc">{{ getDesc(song) }}</p>
                 </div>
             </li>
@@ -28,7 +28,7 @@
     },
     methods: {
       selectItem(item, index) {
-        this.$emit('select', item, index)
+        this.$emit('selectItem', item, index)
       },
       getDesc(song) {
         return `${song.singer} . ${song.album}`
