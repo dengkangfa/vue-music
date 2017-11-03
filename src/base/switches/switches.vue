@@ -1,6 +1,7 @@
 <template>
     <ul class="switches">
-        <li @click="switchItem(index)" class="switch-item" :class="{'active':currentIndex === index}" v-for="(item, index) in switches">
+        <li @click="switchItem(index)" class="switch-item" :class="{'active':currentIndex === index}"
+            v-for="(item, index) in switches">
             <span>{{ item.name }}</span>
         </li>
     </ul>
