@@ -8,7 +8,7 @@
             <div class="play-wrapper">
                 <div class="play" v-show="songs.length > 0" @click="random" ref="playBtn">
                     <i class="icon-play"></i>
-                    <span class="text">随机部分全部</span>
+                    <span class="text">随机播放全部</span>
                 </div>
             </div>
             <div class="filter" ref="filter"></div>

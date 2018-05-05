@@ -419,6 +419,7 @@
     },
     watch: {
       currentSong(newSong, oldSong) {
+        newSong.getSongUrl()
         if (!newSong.id) {
           return
         }

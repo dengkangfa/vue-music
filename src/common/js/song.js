@@ -1,4 +1,4 @@
-import {getLyric} from 'api/song'
+import {getSongUrl, getLyric} from 'api/song'
 import {ERR_OK} from 'api/config'
 import {Base64} from 'js-base64'
 
@@ -11,9 +11,12 @@ export default class Song {
     this.album = album
     this.duration = duration
     this.image = image
-    this.url = url
   }
-
+  getSongUrl() {
+    getSongUrl(this.id, this.mid).then((url) => {
+      this.url = url
+    })
+  }
   getLyric() {
     if (this.lyric) {
       return Promise.resolve(this.lyric)
